@@ -122,7 +122,7 @@ Array.from(colours).forEach(function(c){
       new_game.style.display='block';
     }
     else{
-      c.style.display='none';
+      c.style.background='rgb(26, 24, 38)';
     }
   })
 })
