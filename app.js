@@ -102,14 +102,19 @@ Array.from(colours).forEach(function(c){
     sn11+=1;
     if(hard.querySelector('a').style.color=='white' && sn11==6 ){
       win.textContent='You Loose';
-
-      console.log(new_game);
     }
     if(easy.querySelector('a').style.color=='white' && sn11==3 ){
       win.textContent='You Loose';
     }
+    let sn10=0;
+    if(easy.querySelector('a').style.color=='white'){
+      sn10=3;
+    }
+    else{
+      sn10=6;
+    }
     if(c.style.background==h2.textContent){
-        Array.from(colours).forEach(function(sn1){
+        Array.from(colours).slice(0,sn10).forEach(function(sn1){
           sn1.style.background=hex;
           sn1.style.display='flex';
       })
