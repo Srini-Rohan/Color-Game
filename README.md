@@ -1,2 +1,2 @@
 # Color-Game
-Hackowerflow Assignment 1 Color Gamr
+Hackowerflow Assignment 1 Color Game
