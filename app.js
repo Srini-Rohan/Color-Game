@@ -46,12 +46,19 @@ Array.from(colours).forEach(function(c){
   hex1=rgbToHex(r_color1,g_color1,b_color1);
   c.style.background=hex1;
 })
+let index_easy=Math.floor(Math.random() * 2);
+let index_hard=Math.floor(Math.random() * 5);
 easy.addEventListener('click',function(e){
-  easy.style.display='none';
-  hard.style.display='none';
-  let index=Math.floor(Math.random() * 2);
-  Array.from(colours)[index].style.background=hex;
-
+  // easy.style.display='none';
+  // hard.style.display='none';
+  if(!(hard.querySelector('a').style.color=='white' || easy.querySelector('a').style.color=='white') || (hard.querySelector('a').style.color=='white') && index_hard>2){
+    Array.from(colours)[index_easy].style.background=hex;
+    let r_color1=Math.floor(Math.random() * 255);
+    let g_color1=Math.floor(Math.random() * 255);
+    let b_color1=Math.floor(Math.random() * 255);
+    hex1=rgbToHex(r_color1,g_color1,b_color1);
+    Array.from(colours)[index_hard].style.background=hex1;
+  }
   remove.textContent='';
   easy.querySelector('a').style.color='white';
   hard.querySelector('a').style.color='black';
@@ -69,10 +76,11 @@ easy.addEventListener('click',function(e){
   f.style.display='none';
 });
 hard.addEventListener('click',function(e){
-  easy.style.display='none';
-  hard.style.display='none';
-  let index=Math.floor(Math.random() * 5);
-  Array.from(colours)[index].style.background=hex;
+  // easy.style.display='none';
+  // hard.style.display='none';
+  if(!(hard.querySelector('a').style.color=='white' || easy.querySelector('a').style.color=='white')){
+    Array.from(colours)[index_hard].style.background=hex;
+  }
   remove.textContent='';
   hard.querySelector('a').style.color='white';
   easy.querySelector('a').style.color='black';
