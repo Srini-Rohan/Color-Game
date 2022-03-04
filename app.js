@@ -46,18 +46,25 @@ Array.from(colours).forEach(function(c){
   hex1=rgbToHex(r_color1,g_color1,b_color1);
   c.style.background=hex1;
 })
-let index_easy=Math.floor(Math.random() * 2);
-let index_hard=Math.floor(Math.random() * 5);
+let index_easy=Math.floor(Math.random() * 3);
+let index_hard=Math.floor(Math.random() * 6);
 easy.addEventListener('click',function(e){
   // easy.style.display='none';
   // hard.style.display='none';
   if(!(hard.querySelector('a').style.color=='white' || easy.querySelector('a').style.color=='white') || (hard.querySelector('a').style.color=='white') && index_hard>2){
+    console.log('hello')
     Array.from(colours)[index_easy].style.background=hex;
-    let r_color1=Math.floor(Math.random() * 255);
-    let g_color1=Math.floor(Math.random() * 255);
-    let b_color1=Math.floor(Math.random() * 255);
-    hex1=rgbToHex(r_color1,g_color1,b_color1);
-    Array.from(colours)[index_hard].style.background=hex1;
+    console.log(Array.from(colours)[index_easy].style.background)
+
+    console.log(index_easy)
+    let r_color2=Math.floor(Math.random() * 255);
+    let g_color2=Math.floor(Math.random() * 255);
+    let b_color2=Math.floor(Math.random() * 255);
+    while(index_easy==index_hard){
+      index_hard=Math.floor(Math.random() * 6);
+    }
+    hex2=rgbToHex(r_color2,g_color2,b_color2);
+    Array.from(colours)[index_hard].style.background=hex2;
   }
   remove.textContent='';
   easy.querySelector('a').style.color='white';
@@ -76,6 +83,7 @@ easy.addEventListener('click',function(e){
   f.style.display='none';
 });
 hard.addEventListener('click',function(e){
+  console.log(index_hard);
   // easy.style.display='none';
   // hard.style.display='none';
   if(!(hard.querySelector('a').style.color=='white' || easy.querySelector('a').style.color=='white')){
@@ -121,6 +129,7 @@ Array.from(colours).forEach(function(c){
     else{
       sn10=6;
     }
+    console.log(c.style.background,h2.textContent)
     if(c.style.background==h2.textContent){
         Array.from(colours).slice(0,sn10).forEach(function(sn1){
           sn1.style.background=hex;
